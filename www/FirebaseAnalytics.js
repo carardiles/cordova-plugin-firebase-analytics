@@ -39,6 +39,6 @@ cordova.addConstructor(function () {
     window.plugins = {};
   }
 
-  window.plugins.intentplugin = intentplugin;
-  return window.plugins.intentplugin;
+  window.plugins.firebase_analytics = firebase_analytics;
+  return window.plugins.firebase_analytics;
 });
