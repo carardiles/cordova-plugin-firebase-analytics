@@ -1,7 +1,7 @@
 var exec = require("cordova/exec");
 var PLUGIN_NAME = "FirebaseAnalytics";
 
-module.exports = {
+var firebase_analytics = {
     logEvent: function(name, params) {
         return new Promise(function(resolve, reject) {
             exec(resolve, reject, PLUGIN_NAME, "logEvent", [name, params || {}]);
@@ -33,3 +33,12 @@ module.exports = {
         });
     }
 };
+
+cordova.addConstructor(function () {
+  if (!window.plugins) {
+    window.plugins = {};
+  }
+
+  window.plugins.intentplugin = intentplugin;
+  return window.plugins.intentplugin;
+});
